@@ -1,66 +1,9 @@
-
+.body{
+  background: #babbbb;;
+}
 .wrap{
   display: flex;
   flex-wrap:wrap;
-  width: 1180px;
+  /* width: 1180px; */
   margin:0 auto;
-
-}
-.header{
-  flex:0 1 100%;
-  background-color: blueviolet;
-  display: flex;
-  padding-left: 50px;
-}
-.header h1{
-  margin-left: 20px;
-}
-.nav{
-  flex:0 1 20%;
-  background-color: darksalmon;
-  padding:20px 0;
-}
-.nav ul li{
-  list-style:none;
-}
-.prifile{
-  flex:0 1 80%;
-  background-color: darkseagreen;
-  padding:20px;
-  display: flex;
-  flex-wrap: wrap;
-}
-.prof_back{
-  width: 100%;
-  height: 150px;
-  overflow: hidden;
-  flex:0 1 100%;
-  margin-bottom: 30px;
-}
-.prof_back_img{
-  width: 100%;
-}
-.prof_ava{
-  flex:0 1 20%;
-  width: 170px;
-  height:170px;
-  overflow: hidden;
-  border-radius: 70%;
-}
-.prof_ava_img{
-  width: 100%;
-}
-.prof_info{
-  padding-left: 50px;
-  flex:0 1 80%;
-}
-.prof_info_name{
-  font-size: 32px;
-  color:#fff;
-  font-weight: 700;
-}
-.prof_info_descrip{
-  margin-top: 30px;
-  color:#fff;
-  font-size: 24px;
 }

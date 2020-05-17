@@ -1,0 +1,11 @@
+.header{
+   flex:0 1 100%;
+   background-color: #3d4652;
+   display: flex;
+   padding-left: 50px;
+   font-family: 'Montserrat', sans-serif;
+ }
+ .header_title{
+   margin-left: 20px;
+   color:#fcfcfe;
+ }

@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Header from './Components/Header';
-import Nav from './Components/Nav';
-import Profile from './Pages/Profile';
+import Header from './Components/Header/Header.jsx';
+import Nav from './Components/Navbar/Nav.jsx';
+import Profile from './Pages/Profile/Profile.jsx';
 
 
 
@@ -11,11 +11,11 @@ import Profile from './Pages/Profile';
 
 function App() {
   return (
-    <div>
+    <div className="body">
       <div className="wrap">
-        <Header/>
-        <Nav/>
-        <Profile/>
+        <Header />
+        <Nav />
+        <Profile />
       </div>
 
     </div>
