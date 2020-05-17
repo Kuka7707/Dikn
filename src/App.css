@@ -1,9 +1,15 @@
 .body{
-  background: #babbbb;;
+  background: #babbbb;
 }
 .wrap{
   display: flex;
   flex-wrap:wrap;
   /* width: 1180px; */
   margin:0 auto;
+}
+.content{
+  flex:0 1 80%;
+  background: #babbbb;
+  min-height: 100vh;
+  overflow: hidden;
 }
