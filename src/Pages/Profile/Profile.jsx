@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import P from './Profile.module.css';
-import Post from '../../Components/Navbar/Mypost/Post';
+import Post from '../../Components/Mypost/Post';
 
 export default class Profile extends Component {
    render() {
