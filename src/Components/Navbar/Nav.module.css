@@ -1,6 +1,6 @@
 .navbar{
    flex:0 1 20%;
-   background-color: #3d4652;
+   background-color: #1ab394;
    padding:20px 0;
  }
  .menu{
@@ -11,10 +11,15 @@
  }
  .link{
   color:#fcfcfe;
-  font-size: 20px;
+  font-size: 24px;
   line-height: 35px;
+  letter-spacing:2px;
+  transition: 0.2s;
  }
  .link:hover{
-  color:#7dadd3;
+  color:#666f7b;
   text-decoration: none;
+ }
+ .active{
+  color:#666f7b;
  }

@@ -1,50 +1,6 @@
 .profile{
-   padding:20px;
    display: flex;
    flex-wrap: wrap;
    font-family: 'Montserrat', sans-serif;
  }
- .prof_back{
-   display: flex;
-   flex-direction: column;
-
- }
- .prof_back_in{
-  width: 100%;
-   height: 300px;
-   margin-bottom: 30px;
-   overflow: hidden;
-   border-radius: 1%;
- }
- .prof_back_img{
-   width: 100%;
- }
- .in{
-   display: flex;
-   padding:0 70px;
-   border-bottom: solid 1px #113788 ;
-   margin-bottom: 5px;
- }
- .prof_ava{
-   width: 170px;
-   height:170px;
-   overflow: hidden;
-   border-radius: 100%;
-   border:solid 4px #113788;
- }
- .prof_ava_img{
-   width: 100%;
-   height: 100%;
- }
- .prof_info{
-   padding: 20px 90px;
-   color:#113788;
- }
- .prof_info_name{
-   font-size: 32px;
-   font-weight: 700;
- }
- .prof_info_descrip{
-   margin-top: 30px;
-   font-size: 24px;
- }
+ 

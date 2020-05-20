@@ -7,24 +7,24 @@ import Profile from './Pages/Profile/Profile.jsx';
 import Dialogs from './Pages/Dialogs/Dialogs.jsx';
 import Picture from './Pages/Picture/Picture.jsx';
 import News from './Pages/News/News.jsx';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 
-function App() {
+
+function App(props) {
   return (
-    <BrowserRouter className="body">
-      <div className="wrap">
-        <Header />
-        <Nav />
-        <div className="content">
-        <Route path="/profile" component={Profile} />
-        <Route path="/dialogs" component={Dialogs} />
-        <Route path="/picture" component={Picture} />
-        <Route path="/news" component={News} />        
-        </div>
-      </div>
-    </BrowserRouter>
+    <div className="wrap">
+      <Header />
+      <Nav state={props.state.navbarFriends} />
+      <div className="content">
+        {/* <Route path="/profile" component={Profile} /> */}
 
+        <Route path="/profile" render={() => (<Profile state={props.state.profilePage} addPost={props.addPost} />)} />
+        <Route path="/dialogs" render={() => (<Dialogs state={props.state.dialogsPage} />)} />
+        <Route path="/picture" render={() => (<Picture />)} />
+        <Route path="/news" render={() => (<News />)} />
+      </div>
+    </div>
   );
 }
 

@@ -1,12 +1,13 @@
 .post{
    display: flex;
    /* border-top: solid 1px #000; */
-   padding:10px 80px;
+   padding:10px 0 10px 10%;
    margin-top: 5px;
    width: 100%;
 }
 .post_img{
-   width: 100px;
+   width: 90px;
+   height: 90px;
    border-radius: 10%;
 }
 .post_img img{
@@ -32,14 +33,19 @@
 .btn{
    width: 120px;
    background-color:transparent;
-   border: solid 2px #113788;
+   border: solid 2px #1ab394;
    padding:2px 10px;
-   color:#113788;
+   color:#1ab394;
    cursor: pointer;
    outline: none;
    transition: 0.5s;
+   border-radius: 50px;
+   margin-bottom: 5px;
 }
 .btn:hover{
    border: solid 2px #8d0606;
    color:#a30808;
+}
+.btn:focus{
+  outline: none;
 }

@@ -1,0 +1,88 @@
+.di{
+   display: flex;
+   font-family: 'Montserrat', sans-serif;
+   flex-wrap: wrap;
+}
+.di_items{
+   flex:0 1 20%;
+   padding:5px;
+}
+.di_item{
+   font-size: 20px;
+   font-weight: 600;
+   cursor: pointer;
+   color:inherit;
+   transition: 0.2s;
+}
+.di_item:hover{
+   color:#1ab394;
+   text-decoration: none;
+}
+.active{
+   color:#1ab394;
+}
+.friend{
+   display: flex;
+   margin-bottom: 10px;
+}
+.img{
+   width: 50px;
+   height: 50px;
+}
+.img img{
+   width: 100%;
+   height: 100%;
+   border-radius: 50%;
+}
+.name{
+   display: flex;
+   align-items: center;
+   margin-left: 10px;
+}
+.di_messeges{
+   flex:0 1 80%;
+   display: flex;
+   flex-direction: column;
+   background-color: #f2f2f2;
+   padding: 10px 20px;
+   min-height: 90vh;
+}
+.ready{
+   flex:1 0 auto;
+   font-size: 18px;
+}
+.di_messeg{  
+   padding:10px 30px;
+   background-color: #1ab394;
+   color:#fff;
+   margin-bottom: 5px;
+   border-radius: 50px;
+}
+.addMessage textarea{
+   width: 100%;
+   border-radius: 50px;
+   outline: none;
+   padding:15px 20px 10px 30px;
+}
+.flex{
+   display: flex;
+   flex-direction: row-reverse;
+}
+.btn{
+   margin-top: 5px;
+    background-color: #1ab394;
+    border:none;
+    padding: 5px 15px;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+    transition: 0.5s;
+    border-radius: 50px;
+}
+.btn:hover{
+   background-color:#666f7b;
+   outline: none;
+}
+.btn:focus{
+   outline: none;
+}
