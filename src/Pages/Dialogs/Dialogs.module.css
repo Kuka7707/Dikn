@@ -48,7 +48,7 @@
    min-height: 90vh;
 }
 .ready{
-   flex:1 0 auto;
+   flex:1 1 auto;
    font-size: 18px;
 }
 .di_messeg{  
@@ -63,6 +63,7 @@
    border-radius: 50px;
    outline: none;
    padding:15px 20px 10px 30px;
+   margin-top: 20px;
 }
 .flex{
    display: flex;

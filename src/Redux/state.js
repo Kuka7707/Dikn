@@ -1,4 +1,6 @@
-import { rerender } from "../rerender";
+let rerender = () => {
+   console.log('clone');
+}
 
 let state = {
    profilePage: {
@@ -8,6 +10,7 @@ let state = {
          { id: 3, text: "Салам! Ертен келем, бешбармак дайындап койын!",},
          { id: 4, text: 'Go Pugb || Dota',},
       ],
+      newText: 'Go Pubg Bota',
    },
    dialogsPage: {
       Dialogs: [
@@ -21,6 +24,7 @@ let state = {
          { message: 'respect' },
          { message: 'GO GO! GO' },
       ],
+      newMessage: 'Напиши текст',
    },
    navbarFriends: {
       friends: [
@@ -33,13 +37,44 @@ let state = {
    },
 }
 
-export let addPost = (postMessage) =>{
+
+export const subscribe = (observer) => {
+   rerender = observer;
+}
+
+export const addNewPost = () => {
    let newPost ={
-      id:+1, text: postMessage,
+      id:5, text: state.profilePage.newText,
    }
    state.profilePage.post.push(newPost);
+   state.profilePage.newText = ""
+   
    rerender(state);
 };
 
+export const updateText = (newText) =>{
+   state.profilePage.newText = newText;
+   rerender(state);
+};
+
+
+
+export const addDialogText = () =>{
+   let newMessage ={
+      message: state.dialogsPage.newMessage,
+   }
+   state.dialogsPage.Messages.push(newMessage);
+   state.dialogsPage.newMessage = ""
+
+   rerender(state);
+};
+
+export const GoText = (newMessage) =>{
+   state.dialogsPage.newMessage = newMessage;
+   rerender(state);
+};
+
+
+window.state = state
 
 export default state 

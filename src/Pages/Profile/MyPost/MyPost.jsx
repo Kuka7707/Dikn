@@ -3,17 +3,22 @@ import N from './MyPost.module.css';
 
 const NewPost = (props) => {
 
-   let AddNewPost = React.createRef();
+   let AddNewPostR = React.createRef();
 
    let addPost = () => {
-      let text = AddNewPost.current.value;
-      props.addPost(text);
-      AddNewPost.current.value = '';
+      let text = AddNewPostR.current.value;
+      props.addNewPost(text);
    }
+
+   let changeText = () => {
+      let text = AddNewPostR.current.value;
+      props.updateText(text);
+   }
+
    return (
       <div className={N.new_post}>
          <div>
-            <textarea ref={AddNewPost} className={N.new_text}></textarea>
+            <textarea onChange={changeText} ref={AddNewPostR} className={N.new_text} value={props.newText}/>
          </div>
          <div className={N.flex}>
             <button onClick={addPost} className={N.btn}>Опубликовать</button>

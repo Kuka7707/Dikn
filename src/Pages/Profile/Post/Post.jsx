@@ -16,9 +16,11 @@ const Post = (props) => {
                   {props.text}
                </div>
             </div>
-            <button className={P.btn}>Like</button>
-            <button className={P.btn}>Удалить</button>
-            
+            <div className={P.grp_btn}>
+               <button className={P.btn}>Like</button>
+               <button className={P.btn}>Удалить</button>
+            </div>
+
          </div>
       </div>
    )
