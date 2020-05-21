@@ -2,6 +2,9 @@ import React from 'react';
 import D from './Dialogs.module.css';
 import DialogItem from './DialogItem/DialogItem.jsx';
 import Message from './Message/Message.jsx';
+import {textInputActionCreator, addTextActionCreator} from '../../Redux/state';
+
+
 
 const Dialogs = (props) => {
 
@@ -13,12 +16,11 @@ const Dialogs = (props) => {
 
    let textInput = () => {
       let text = newText.current.value;
-      props.GoText(text);
+      props.dispatch(textInputActionCreator(text));
    }
 
    let addText = () => {
-      let text = newText.current.value;
-      props.addDialogText(text);
+      props.dispatch(addTextActionCreator());
    }
 
    return (

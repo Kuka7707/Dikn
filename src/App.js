@@ -19,8 +19,8 @@ function App(props) {
       <div className="content">
         {/* <Route path="/profile" component={Profile} /> */}
 
-        <Route path="/profile" render={() => (<Profile profilePage={props.state.profilePage} addNewPost={props.addNewPost} updateText={props.updateText} />)} />
-        <Route path="/dialogs" render={() => (<Dialogs state={props.state.dialogsPage}  addDialogText={props.addDialogText} GoText={props.GoText} />)} />
+        <Route path="/profile" render={() => (<Profile profilePage={props.state.profilePage} dispatch={props.dispatch} />)} />
+        <Route path="/dialogs" render={() => (<Dialogs state={props.state.dialogsPage}  dispatch={props.dispatch} />)} />
         <Route path="/picture" render={() => (<Picture />)} />
         <Route path="/news" render={() => (<News />)} />
       </div>

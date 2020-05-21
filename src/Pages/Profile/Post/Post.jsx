@@ -1,7 +1,14 @@
 import React from 'react';
 import P from './Post.module.css';
+import {removeActionCreator} from "../../../Redux/state";
+
 
 const Post = (props) => {
+
+   let remove = () => {
+      props.dispatch(removeActionCreator());
+   }
+
    return (
       <div className={P.post}>
          <div className={P.post_img}>
@@ -18,7 +25,7 @@ const Post = (props) => {
             </div>
             <div className={P.grp_btn}>
                <button className={P.btn}>Like</button>
-               <button className={P.btn}>Удалить</button>
+               <button onClick={remove} className={P.btn}>Удалить</button>
             </div>
 
          </div>

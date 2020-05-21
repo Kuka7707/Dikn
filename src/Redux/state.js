@@ -1,11 +1,18 @@
+const ADD_NEW_POST = 'ADD-NEW-POST';
+const UPDATE_TEXT = 'UPDATE-TEXT';
+const REMOVE = 'REMOVE';
+const GO_TEXT = 'GO-TEXT';
+const ADD_DIALOG_TEXT = 'ADD-DIALOG-TEXT';
+
+
 let store = {
-   _state : {
+   _state: {
       profilePage: {
          post: [
-            { id: 1, text: 'Привет! калайсын? Мен уйде жатырмын! Далага шыгаснба?',},
-            { id: 2, text: 'Привет! Мама жазса, маган звандасын деп айтшы! Мен номерин кетрп алыппын.',},
-            { id: 3, text: "Салам! Ертен келем, бешбармак дайындап койын!",},
-            { id: 4, text: 'Go Pugb || Dota',},
+            { id: 0, text: 'Привет! калайсын? Мен уйде жатырмын! Далага шыгаснба?', },
+            { id: 1, text: 'Привет! Мама жазса, маган звандасын деп айтшы! Мен номерин кетрп алыппын.', },
+            { id: 2, text: "Салам! Ертен келем, бешбармак дайындап койын!", },
+            { id: 3, text: 'Go Pugb || Dota', },
          ],
          newText: 'Go Pubg Bota',
       },
@@ -30,51 +37,64 @@ let store = {
             { id: '3', name: "Бота", img: 'https://www.meme-arsenal.com/memes/cdee9796a1e5a92779cccc2d6486980e.jpg' },
             { id: '4', name: "Tunga", img: 'https://avatarfiles.alphacoders.com/209/209340.jpg' },
             { id: '5', name: "Жалгас", img: 'https://avatarko.ru/img/kartinka/30/igra_Dota_2_Juggernaut_29058.jpg' },
+            { id: '6', name: "Нуркен", img: 'https://vk.vkfaces.com/638324/v638324362/30021/Y2H6JP-GvAA.jpg' },
          ],
       },
    },
-   getState(){
+   getState() {
       return (
          this._state
       );
    },
-   _rerender(){
+   _rerender() {
       console.log('clone');
    },
-   subscribe(observer){
+   subscribe(observer) {
       this._rerender = observer;
    },
-   addNewPost(){
-      let newPost ={
-         id:5, text: this._state.profilePage.newText,
+   dispatch(action) {
+      if (action.type === ADD_NEW_POST) {
+         let newPost = {
+            id: 5, text: this._state.profilePage.newText,
+         }
+         this._state.profilePage.post.push(newPost);
+         this._state.profilePage.newText = ""
+
+         this._rerender();
+      } else if (action.type === UPDATE_TEXT) {
+         this._state.profilePage.newText = action.newText;
+         this._rerender();
+      } else if(action.type === REMOVE){
+         this._state.profilePage.post.pop();
+
+         this._rerender();
+      } else if (action.type === ADD_DIALOG_TEXT) {
+         let newMessage = {
+            message: this._state.dialogsPage.newMessage,
+         }
+         this._state.dialogsPage.Messages.push(newMessage);
+         this._state.dialogsPage.newMessage = ""
+
+         this._rerender();
+      } else if (action.type === GO_TEXT) {
+         this._state.dialogsPage.newMessage = action.newMessage;
+         this._rerender();
       }
-      this._state.profilePage.post.push(newPost);
-      this._state.profilePage.newText = ""
-      
-      this._rerender();
-   },
-   updateText(newText){
-      this._state.profilePage.newText = newText;
-      this._rerender();
-   },
-   addDialogText(){
-      let newMessage ={
-         message: this._state.dialogsPage.newMessage,
-      }
-      this._state.dialogsPage.Messages.push(newMessage);
-      this._state.dialogsPage.newMessage = ""
-   
-      this._rerender();
-   },
-   GoText(newMessage){
-      this._state.dialogsPage.newMessage = newMessage;
-      this._rerender();
    },
 }
 
+export const addPostActionCreator = () => ({ type:ADD_NEW_POST })
+
+export const changeTextActionCreator = (text) => ({type:UPDATE_TEXT, newText:text,})
+
+export const removeActionCreator = () =>({type: REMOVE})
+
+export const textInputActionCreator = (text)=>({type: GO_TEXT, newMessage:text})
+
+export const addTextActionCreator = () => ({type:ADD_DIALOG_TEXT})
 
 
 
-export default store 
+export default store
 
 window.store = store

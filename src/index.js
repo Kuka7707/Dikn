@@ -10,7 +10,7 @@ import store from './Redux/state.js';
  let rerender = () => {
   ReactDOM.render(
     <BrowserRouter>
-      <App state={store.getState()} addNewPost={store.addNewPost.bind(store)} updateText={store.updateText.bind(store)} addDialogText={store.addDialogText.bind(store)} GoText={store.GoText.bind(store)} />
+      <App state={store.getState()} dispatch={store.dispatch.bind(store)} />
     </BrowserRouter>,
     document.getElementById('root')
   );

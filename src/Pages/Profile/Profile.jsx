@@ -8,12 +8,12 @@ import MyPost from './MyPost/MyPost.jsx';
 
 const Profile = (props) => {
 
-   let NewPost = props.profilePage.post.map(el => (<Post text={el.text} />));
+   let NewPost = props.profilePage.post.map(el => (<Post text={el.text} dispatch={props.dispatch} />));
    
    return (
       <div className={P.profile}>
          <ProfileInfo />
-         <MyPost newText={props.profilePage.newText} updateText={props.updateText} addNewPost={props.addNewPost}/>
+         <MyPost newText={props.profilePage.newText} dispatch={props.dispatch}/>
          {NewPost}
       </div>
    )
