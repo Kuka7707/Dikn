@@ -8,17 +8,17 @@ import {textInputActionCreator, addTextActionCreator} from '../../Redux/DialogsR
 
 const Dialogs = (props) => {
 
-   let NewMessages = props.state.Messages.map(m => (<Message message={m.message} />));
-   let NewDialog = props.state.Dialogs.map(n => (<DialogItem name={n.name} id={n.id} img={n.img} />));
+   let NewMessages = props.dialogsPage.Messages.map(m => (<Message message={m.message} />));
+   let NewDialog = props.dialogsPage.Dialogs.map(n => (<DialogItem name={n.name} id={n.id} img={n.img} />));
 
 
-   let textInput = (e) => {
+   let onTextInput = (e) => {
       let text = e.target.value;
-      props.dispatch(textInputActionCreator(text));
+      props.textInput(text);
    }
 
-   let addText = () => {
-      props.dispatch(addTextActionCreator());
+   let onAddText = () => {
+      props.addText();
    }
 
    return (
@@ -32,10 +32,10 @@ const Dialogs = (props) => {
             </div>
             <div className={D.addMessage}>
                <div>
-                  <textarea onChange={textInput} value={props.state.newMessage} placeholder='Напишите сообщение'/>
+                  <textarea onChange={onTextInput} value={props.newValue} placeholder='Напишите сообщение'/>
                </div>
                <div className={D.flex}>
-                  <button onClick={addText} className={D.btn}>Отправить</button>
+                  <button onClick={onAddText} className={D.btn}>Отправить</button>
                </div>
             </div>
          </div>

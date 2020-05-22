@@ -4,10 +4,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './Components/Header/Header.jsx';
 import Nav from './Components/Navbar/Nav.jsx';
 import Profile from './Pages/Profile/Profile.jsx';
-import Dialogs from './Pages/Dialogs/Dialogs.jsx';
 import Picture from './Pages/Picture/Picture.jsx';
 import News from './Pages/News/News.jsx';
 import { Route } from 'react-router-dom';
+import DialogsContainer from './Pages/Dialogs/DialogsContainer';
 
 
 
@@ -15,12 +15,12 @@ function App(props) {
   return (
     <div className="wrap">
       <Header />
-      <Nav state={props.state.navbarFriends} />
+      <Nav state={props.store.getState().navbarFriends} />
       <div className="content">
         {/* <Route path="/profile" component={Profile} /> */}
 
-        <Route path="/profile" render={() => (<Profile profilePage={props.state.profilePage} dispatch={props.dispatch} />)} />
-        <Route path="/dialogs" render={() => (<Dialogs state={props.state.dialogsPage}  dispatch={props.dispatch} />)} />
+        <Route path="/profile" render={() => (<Profile store={props.store} />)} />
+        <Route path="/dialogs" render={() => (<DialogsContainer store={props.store}/>)} />
         <Route path="/picture" render={() => (<Picture />)} />
         <Route path="/news" render={() => (<News />)} />
       </div>
