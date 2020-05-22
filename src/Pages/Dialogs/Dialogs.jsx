@@ -2,7 +2,7 @@ import React from 'react';
 import D from './Dialogs.module.css';
 import DialogItem from './DialogItem/DialogItem.jsx';
 import Message from './Message/Message.jsx';
-import {textInputActionCreator, addTextActionCreator} from '../../Redux/state';
+import {textInputActionCreator, addTextActionCreator} from '../../Redux/DialogsReducer';
 
 
 
@@ -12,10 +12,8 @@ const Dialogs = (props) => {
    let NewDialog = props.state.Dialogs.map(n => (<DialogItem name={n.name} id={n.id} img={n.img} />));
 
 
-   let newText = React.createRef();
-
-   let textInput = () => {
-      let text = newText.current.value;
+   let textInput = (e) => {
+      let text = e.target.value;
       props.dispatch(textInputActionCreator(text));
    }
 
@@ -34,7 +32,7 @@ const Dialogs = (props) => {
             </div>
             <div className={D.addMessage}>
                <div>
-                  <textarea ref={newText} onChange={textInput} value={props.state.newMessage} />
+                  <textarea onChange={textInput} value={props.state.newMessage} placeholder='Напишите сообщение'/>
                </div>
                <div className={D.flex}>
                   <button onClick={addText} className={D.btn}>Отправить</button>

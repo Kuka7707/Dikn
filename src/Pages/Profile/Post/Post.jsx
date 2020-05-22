@@ -1,6 +1,6 @@
 import React from 'react';
 import P from './Post.module.css';
-import {removeActionCreator} from "../../../Redux/state";
+import {removeActionCreator} from "../../../Redux/ProfileReducer";
 
 
 const Post = (props) => {

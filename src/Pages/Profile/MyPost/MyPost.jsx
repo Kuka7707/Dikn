@@ -1,6 +1,6 @@
 import React from 'react';
 import N from './MyPost.module.css';
-import {addPostActionCreator, changeTextActionCreator } from '../../../Redux/state';
+import {addPostActionCreator, changeTextActionCreator } from '../../../Redux/ProfileReducer';
 
 
 const NewPost = (props) => {
@@ -21,7 +21,7 @@ const NewPost = (props) => {
    return (
       <div className={N.new_post}>
          <div>
-            <textarea onChange={changeText} ref={AddNewPostR} className={N.new_text} value={props.newText}/>
+            <textarea onChange={changeText} ref={AddNewPostR} className={N.new_text} value={props.newText} placeholder="Напишите публикацию" />
          </div>
          <div className={N.flex}>
             <button onClick={addPost} className={N.btn}>Опубликовать</button>

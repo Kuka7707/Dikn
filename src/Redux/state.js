@@ -1,9 +1,6 @@
-const ADD_NEW_POST = 'ADD-NEW-POST';
-const UPDATE_TEXT = 'UPDATE-TEXT';
-const REMOVE = 'REMOVE';
-const GO_TEXT = 'GO-TEXT';
-const ADD_DIALOG_TEXT = 'ADD-DIALOG-TEXT';
-
+import ProfileReducer from "./ProfileReducer";
+import DialogsReducer from "./DialogsReducer";
+import FriendsReducer from "./FriendsReducer";
 
 let store = {
    _state: {
@@ -14,7 +11,7 @@ let store = {
             { id: 2, text: "Салам! Ертен келем, бешбармак дайындап койын!", },
             { id: 3, text: 'Go Pugb || Dota', },
          ],
-         newText: 'Go Pubg Bota',
+         newText: '',
       },
       dialogsPage: {
          Dialogs: [
@@ -28,7 +25,7 @@ let store = {
             { message: 'respect' },
             { message: 'GO GO! GO' },
          ],
-         newMessage: 'Напиши текст',
+         newMessage: '',
       },
       navbarFriends: {
          friends: [
@@ -53,45 +50,16 @@ let store = {
       this._rerender = observer;
    },
    dispatch(action) {
-      if (action.type === ADD_NEW_POST) {
-         let newPost = {
-            id: 5, text: this._state.profilePage.newText,
-         }
-         this._state.profilePage.post.push(newPost);
-         this._state.profilePage.newText = ""
+      this._state.profilePage = ProfileReducer(this._state.profilePage ,action);
+      this._state.dialogsPage = DialogsReducer(this._state.dialogsPage, action);
+      this._state.navbarFriends = FriendsReducer(this._state.navbarFriends, action);
 
-         this._rerender();
-      } else if (action.type === UPDATE_TEXT) {
-         this._state.profilePage.newText = action.newText;
-         this._rerender();
-      } else if(action.type === REMOVE){
-         this._state.profilePage.post.pop();
-
-         this._rerender();
-      } else if (action.type === ADD_DIALOG_TEXT) {
-         let newMessage = {
-            message: this._state.dialogsPage.newMessage,
-         }
-         this._state.dialogsPage.Messages.push(newMessage);
-         this._state.dialogsPage.newMessage = ""
-
-         this._rerender();
-      } else if (action.type === GO_TEXT) {
-         this._state.dialogsPage.newMessage = action.newMessage;
-         this._rerender();
-      }
+      this._rerender(this._state);
    },
 }
 
-export const addPostActionCreator = () => ({ type:ADD_NEW_POST })
 
-export const changeTextActionCreator = (text) => ({type:UPDATE_TEXT, newText:text,})
 
-export const removeActionCreator = () =>({type: REMOVE})
-
-export const textInputActionCreator = (text)=>({type: GO_TEXT, newMessage:text})
-
-export const addTextActionCreator = () => ({type:ADD_DIALOG_TEXT})
 
 
 
