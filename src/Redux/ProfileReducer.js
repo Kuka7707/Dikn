@@ -2,8 +2,16 @@ const ADD_NEW_POST = 'ADD-NEW-POST';
 const UPDATE_TEXT = 'UPDATE-TEXT';
 const REMOVE = 'REMOVE';
 
+let initialState = {
+   post: [
+      { id: 0, text: 'Привет! калайсын? Мен уйде жатырмын! Далага шыгаснба?', },
+      { id: 1, text: 'Привет! Мама жазса, маган звандасын деп айтшы! Мен номерин кетрп алыппын.', },
+      { id: 2, text: "Салам! Ертен келем, бешбармак дайындап койын!", },
+   ],
+   newText: '',
+}
 
-const ProfileReducer = (state, action) => {
+const ProfileReducer = (state = initialState, action) => {
    switch(action.type){
       case ADD_NEW_POST :
          let newPost = {
