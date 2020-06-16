@@ -11,18 +11,18 @@ import DialogsContainer from './Pages/Dialogs/DialogsContainer';
 
 
 
-function App(props) {
+function App() {
   return (
     <div className="wrap">
       <Header />
-      <Nav state={props.store.getState().navbarFriends} />
+      <Nav/>
       <div className="content">
         {/* <Route path="/profile" component={Profile} /> */}
 
-        <Route path="/profile" render={() => (<Profile store={props.store} />)} />
-        <Route path="/dialogs" render={() => (<DialogsContainer store={props.store}/>)} />
+        <Route path="/profile" render={() => (<Profile/>)} />
+        <Route path="/dialogs" render={() => (<DialogsContainer/>)} />
         <Route path="/picture" render={() => (<Picture />)} />
-        <Route path="/news" render={() => (<News />)} />
+        <Route path="/news" render={() => (<News/>)} />
       </div>
     </div>
   );
