@@ -13,14 +13,14 @@ const DialogsContainer = (props) => {
             let textInput = (text) => {
                store.dispatch(textInputActionCreator(text));
             }
-         
+
             let dialogsPage = store.getState().dialogsPage;
             let newValue = dialogsPage.newMessage;
-         
+
             let addText = () => {
                store.dispatch(addTextActionCreator());
             }
-            return(<Dialogs dialogsPage={dialogsPage} addText={addText} textInput={textInput} newValue={newValue} />)
+            return (<Dialogs dialogsPage={dialogsPage} addText={addText} textInput={textInput} newValue={newValue} />)
          }
       }
       </StoreContetn.Consumer>)

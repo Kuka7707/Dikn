@@ -6,7 +6,7 @@ import Nav from './Components/Navbar/Nav.jsx';
 import Profile from './Pages/Profile/Profile.jsx';
 import Picture from './Pages/Picture/Picture.jsx';
 import News from './Pages/News/News.jsx';
-import { Route } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import DialogsContainer from './Pages/Dialogs/DialogsContainer';
 
 
@@ -23,6 +23,7 @@ function App() {
         <Route path="/dialogs" render={() => (<DialogsContainer/>)} />
         <Route path="/picture" render={() => (<Picture />)} />
         <Route path="/news" render={() => (<News/>)} />
+        <Redirect to="/profile"/>
       </div>
     </div>
   );
