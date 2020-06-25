@@ -11,19 +11,22 @@ import DialogsContainer from './Pages/Dialogs/DialogsContainer';
 
 
 
-function App() {
+function App(props) {
   return (
     <div className="wrap">
       <Header />
-      <Nav/>
+      <Nav />
       <div className="content">
         {/* <Route path="/profile" component={Profile} /> */}
 
-        <Route path="/profile" render={() => (<Profile/>)} />
-        <Route path="/dialogs" render={() => (<DialogsContainer/>)} />
+        <Route path="/profile" render={() => (<Profile store={props.store} />)} />
+        <Route path="/dialogs" render={() => (<DialogsContainer />)} />
+
+
         <Route path="/picture" render={() => (<Picture />)} />
-        <Route path="/news" render={() => (<News/>)} />
-        <Redirect to="/profile"/>
+        <Route path="/news" render={() => (<News />)} />
+
+        <Redirect path="/" to="/profile" />
       </div>
     </div>
   );

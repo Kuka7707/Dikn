@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import N from './Nav.module.css';
 import { NavLink } from 'react-router-dom';
-import Friends from './Friends/Friends';
+import FriendsContainer from './Friends/FriendsContainer';
+
 
 const Nav = () => {
    return (
@@ -12,7 +13,7 @@ const Nav = () => {
             <li className={N.item}><NavLink className={N.link} activeClassName={N.active} to="/picture">Картинки</NavLink></li>
             <li className={N.item}><NavLink className={N.link} activeClassName={N.active} to="/news">Новости</NavLink></li>
          </ul>
-         <Friends/>
+         <FriendsContainer/>
       </nav>
    )
 }

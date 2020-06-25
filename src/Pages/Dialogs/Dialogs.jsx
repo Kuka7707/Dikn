@@ -2,14 +2,13 @@ import React from 'react';
 import D from './Dialogs.module.css';
 import DialogItem from './DialogItem/DialogItem.jsx';
 import Message from './Message/Message.jsx';
-import {textInputActionCreator, addTextActionCreator} from '../../Redux/DialogsReducer';
 
 
 
 const Dialogs = (props) => {
 
    let NewMessages = props.dialogsPage.Messages.map(m => (<Message message={m.message} />));
-   let NewDialog = props.dialogsPage.Dialogs.map(n => (<DialogItem name={n.name} id={n.id} img={n.img} />));
+   let NewDialog = props.dialogsPage.Dialogs.map(d => (<DialogItem name={d.name} id={d.id} img={d.img} />));
 
 
    let onTextInput = (e) => {
