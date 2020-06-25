@@ -19,7 +19,7 @@ const MyPost = (props) => {
       props.remove();
    }
 
-   let NewPost = props.post.map(p => (<Post text={p.text} remove={Remove}/>));
+   let NewPost = props.post.map(p => (<Post text={p.text} key={p.id} remove={Remove}/>));
 
 
    return (

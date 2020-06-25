@@ -21,6 +21,14 @@
    cursor: pointer;
    align-items: center;
    justify-content: center;
+   color: #666f7b;
+   opacity: 0.8;
+   transition: 0.5s ;
+ }
+ .friend:hover{
+   color:#fcfcfe;
+   text-decoration: none;
+   opacity: 1;
  }
  .img{
    margin-top: 20px;

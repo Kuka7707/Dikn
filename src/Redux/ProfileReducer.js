@@ -12,37 +12,38 @@ let initialState = {
 }
 
 const ProfileReducer = (state = initialState, action) => {
-   switch(action.type){
-      case ADD_NEW_POST :
+   switch (action.type) {
+      case ADD_NEW_POST:
          let newPost = {
             id: 5, text: state.newText,
          }
-         let stateCopy = {...state};
-         stateCopy.post = {...state.post};
-         stateCopy.post.push(newPost);
-         stateCopy.newText = "";
-         return stateCopy;
-      
-      case UPDATE_TEXT :
-         stateCopy.newText = {...state.newText}
-         stateCopy.newText = action.newText;
-         return stateCopy;
-      
-      case REMOVE :
-         stateCopy.post = {...state.post};
+         return {
+            ...state,
+            newText: '',
+            post: [...state.post, newPost]
+         };
+      case UPDATE_TEXT:
+         return {
+            ...state,
+            newText: action.newText
+         };
+      case REMOVE:
+         let stateCopy = {
+            ...state,
+            post: [...state.post]
+         };
          stateCopy.post.pop();
          return stateCopy;
-
-      default :
+      default:
          return state;
    }
 }
 
-export const addPostActionCreator = () => ({ type:ADD_NEW_POST })
+export const addPostActionCreator = () => ({ type: ADD_NEW_POST })
 
-export const changeTextActionCreator = (text) => ({type:UPDATE_TEXT, newText:text,})
+export const changeTextActionCreator = (text) => ({ type: UPDATE_TEXT, newText: text, })
 
-export const removeActionCreator = () =>({type: REMOVE})
+export const removeActionCreator = () => ({ type: REMOVE })
 
 
 export default ProfileReducer
