@@ -28,12 +28,19 @@ const ProfileReducer = (state = initialState, action) => {
             newText: action.newText
          };
       case REMOVE:
-         let stateCopy = {
+         return {
             ...state,
-            post: [...state.post]
+            post: state.post.map(p => {
+               if (p.id === action.postId) {
+                  var index = p.indexOf(action.postId);
+                  if (index > -1) {
+                     p.splice(index, 1);
+                  }
+                  return { ...p }
+               }
+               return p
+            })
          };
-         stateCopy.post.pop();
-         return stateCopy;
       default:
          return state;
    }
@@ -43,7 +50,7 @@ export const addPostActionCreator = () => ({ type: ADD_NEW_POST })
 
 export const changeTextActionCreator = (text) => ({ type: UPDATE_TEXT, newText: text, })
 
-export const removeActionCreator = () => ({ type: REMOVE })
+export const removeActionCreator = (postId) => ({ type: REMOVE, postId })
 
 
 export default ProfileReducer
